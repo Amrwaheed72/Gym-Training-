@@ -1,6 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import banner from "../assets/images/banner.png";
 function HeroBanner() {
+
   return (
     <Box
       sx={{ mt: { lg: "212px", xs: "70px" }, ml: { sm: "50px" } }}
