@@ -7,7 +7,7 @@ import { useState } from "react";
 function Home() {
   const [bodyPart, setBodyPart] = useState("all");
   const [exercises, setExercises] = useState([]);
-
+console.log(bodyPart)
   return (
     <Box>
       <HeroBanner />
@@ -18,7 +18,7 @@ function Home() {
       />
       <Exercises
         bodyPart={bodyPart}
-        setBodyPart={setBodyPart}
+        exercises={exercises}
         setExercises={setExercises}
       />
     </Box>

@@ -11,7 +11,13 @@ const LeftArrow = ({ onClick }) => {
     <Typography
       onClick={onClick}
       className="right-arrow"
-      sx={{ cursor: "pointer", position: "absolute", left: 0, zIndex: 1 }}
+      sx={{
+        cursor: "pointer",
+        position: "absolute",
+        zIndex: 1,
+        right: { lg: "70px", sm: "50px", xs: "30px" },
+        bottom: { lg: "-50px", sm: "-50px" },
+      }}
     >
       <img src={LeftArrowIcon} alt="left-arrow" />
     </Typography>
@@ -23,7 +29,13 @@ const RightArrow = ({ onClick }) => {
     <Typography
       onClick={onClick}
       className="left-arrow"
-      sx={{ cursor: "pointer", position: "absolute", right: 0, zIndex: 1 }}
+      sx={{
+        cursor: "pointer",
+        position: "absolute",
+        right: 0,
+        zIndex: 1,
+        bottom: "-50px",
+      }}
     >
       <img src={RightArrowIcon} alt="right-arrow" />
     </Typography>
@@ -31,7 +43,6 @@ const RightArrow = ({ onClick }) => {
 };
 
 function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
-  // Filter unique categories, ensuring "all" is first
   const uniqueCategories = [
     "all",
     ...new Set(data.filter((item) => item !== "all")),
@@ -42,37 +53,39 @@ function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 3, // Number of items visible at once
-    slidesToScroll: 3, // Number of items to scroll per click
+    slidesToShow: 4,
+    slidesToScroll: 4,
     nextArrow: <RightArrow />,
     prevArrow: <LeftArrow />,
     responsive: [
       {
         breakpoint: 960,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
+          slidesToScroll: 3,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 3,
+          slidesToScroll: 3,
         },
       },
     ],
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative", height: "400px" }}>
       <Slider {...settings}>
         {uniqueCategories.map((item, index) => (
           <Box
-            key={item} // Use the category as the key since it's unique
+            key={item}
             title={item}
-            m="0 40px"
+            sx={{ m: { lg: "0 40px", sm: "0 30px", xs: "0 20px" } }}
           >
             <BodyPartCard
-              item={item} // Pass the category string directly
+              item={item}
               bodyPart={bodyPart}
               setBodyPart={setBodyPart}
             />

@@ -33,6 +33,27 @@ body {
   transition: 0.3s all ease-in-out;
 }
 
+.icon-image {
+  width: 40px;
+  height: 40px;
+}
+
+/* Media queries should be separate */
+@media (max-width: 1200px) {
+  .icon-image {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .icon-image {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+
 .right-arrow {
   right: 140px;
 }

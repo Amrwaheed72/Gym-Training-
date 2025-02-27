@@ -37,8 +37,20 @@ function SearchExercises({ bodyPart, setBodyPart, setExercises }) {
       setSearch("");
     }
   };
-  console.log(bodyParts)
 
+  function handleClickKey(e) {
+    if (e.key === "Enter") {
+      const searchedExercises = exercisesData.filter(
+        (exercise) =>
+          exercise?.name?.toLowerCase().includes(search) ||
+          exercise?.target?.toLowerCase().includes(search) ||
+          exercise?.equipment?.toLowerCase().includes(search) ||
+          exercise?.bodyPart?.toLowerCase().includes(search)
+      );
+      setExercises(searchedExercises);
+      setSearch("");
+    }
+  }
 
   return (
     <Stack alignItems="center" mt="37px" justifyContent="center" padding="20px">
@@ -52,6 +64,7 @@ function SearchExercises({ bodyPart, setBodyPart, setExercises }) {
       </Typography>
       <Box position="relative" mb="72px">
         <TextField
+          onKeyDown={handleClickKey}
           className="input-field"
           value={search}
           onChange={(e) => {
