@@ -3,7 +3,6 @@ import { Box, Stack, Typography } from "@mui/material";
 function ExerciseVideos({ video, name }) {
   if (!video || video.length === 0) return "Loading...";
 
-  console.log("Video Data:", video); // Debugging
 
   // Filter videos to ensure relevance to exercises
   const exerciseVideos = video

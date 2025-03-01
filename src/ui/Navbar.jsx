@@ -16,6 +16,7 @@ function Navbar() {
     >
       <Link to="/">
         <img
+        alt="amr"
           src={Logo}
           style={{ width: "48px", height: "48px", margin: "0 20px" }}
         />

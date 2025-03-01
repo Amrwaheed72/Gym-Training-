@@ -8,7 +8,7 @@ import HorizontalScrollbar from "../ui/HorizontalScrollbar";
 function SearchExercises({ bodyPart, setBodyPart, setExercises }) {
   const [search, setSearch] = useState("");
   const [bodyParts, setBodyParts] = useState([]);
-  const { exercisesData, isPending, error, refetch } = useFetchExercise();
+  const { exercisesData, isPending, error } = useFetchExercise();
   useEffect(() => {
     const handleCategories = () => {
       if (exercisesData) {

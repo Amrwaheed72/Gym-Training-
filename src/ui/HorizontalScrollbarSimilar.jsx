@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LeftArrowIcon from "../assets/icons/left-arrow.png";
 import RightArrowIcon from "../assets/icons/right-arrow.png";
-import Spinner from "./Spinner";
+import ExerciseCard from "./ExerciseCard";
 
 const LeftArrow = ({ onClick }) => {
   return (
@@ -43,13 +43,12 @@ const RightArrow = ({ onClick }) => {
   );
 };
 
-function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
-  if(!data) return <Spinner />
-  const uniqueCategories = [
-    "all",
-    ...new Set(data?.filter((item) => item !== "all")),
-  ];
-
+function HorizontalScrollbarSimilar({
+  data,
+  bodyPart,
+  setBodyPart,
+  isBodyParts,
+}){
   // Slider settings
   const settings = {
     dots: false,
@@ -80,17 +79,21 @@ function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
   return (
     <div style={{ position: "relative", height: "400px" }}>
       <Slider {...settings}>
-        {uniqueCategories.map((item, index) => (
+        {data.map((item, index) => (
           <Box
             key={item}
             title={item}
             sx={{ m: { lg: "0 40px", sm: "0 30px", xs: "0 20px" } }}
           >
-            <BodyPartCard
-              item={item}
-              bodyPart={bodyPart}
-              setBodyPart={setBodyPart}
-            />
+            {isBodyParts ? (
+              <BodyPartCard
+                item={item}
+                bodyPart={bodyPart}
+                setBodyPart={setBodyPart}
+              />
+            ) : (
+              <ExerciseCard exercise={item} />
+            )}
           </Box>
         ))}
       </Slider>
@@ -98,4 +101,4 @@ function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
   );
 }
 
-export default HorizontalScrollbar;
+export default HorizontalScrollbarSimilar;

@@ -29,7 +29,6 @@ function Detail({ exerciseDetail }) {
 //   const { videoData, isPending, error } = useFetchVideo(name);
 
 
-  console.log("exerciseDetail:", exerciseDetail);
 
   const extraDetails = [
     {

@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
 import Detail from "../ui/Detail";
 import ExerciseVideos from "../ui/ExerciseVideos";
-import SimilarExercises from "../ui/SimilarExercises";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFetchExercise } from "./useFetchExercise";
@@ -47,12 +46,11 @@ function ExerciseDetail() {
   
   if (isPending) return <Spinner />;
   if (error) return toast.error("error loading the Exercises");
-  console.log(exerciseDetail[0]?.name);
   return (
     <Box>
       <Detail exerciseDetail={exerciseDetail} />
       <ExerciseVideos video={video} name={exerciseDetail[0]?.name} />
-      <SimilarExercises />
+      {/* <SimilarExercises /> */}
     </Box>
   );
 }

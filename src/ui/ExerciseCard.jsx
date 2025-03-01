@@ -1,5 +1,4 @@
 import { Button, Stack, Typography } from "@mui/material";
-import { lazy } from "react";
 import { Link } from "react-router-dom";
 
 function ExerciseCard({ exercise }) {
