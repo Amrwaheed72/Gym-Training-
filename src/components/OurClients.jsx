@@ -3,13 +3,15 @@ import LeftArrowIcon from "../assets/icons/left-arrow.png";
 import RightArrowIcon from "../assets/icons/right-arrow.png";
 import Slider from "react-slick";
 import before from "../assets/images/before.jpeg";
+import before1 from "../assets/images/before 1.jpeg";
 import after from "../assets/images/after.png";
+import after1 from "../assets/images/after 1.jpg";
 
 const clients = [
   { image: before, label: "Before" },
   { image: after, label: "After" },
-  { image: before, label: "Before" },
-  { image: after, label: "After" },
+  { image: before1, label: "Before" },
+  { image: after1, label: "After" },
 ];
 
 const LeftArrow = ({ onClick }) => {
