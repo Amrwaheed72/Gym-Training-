@@ -5,7 +5,12 @@ import Slider from "react-slick";
 import before from "../assets/images/before.jpeg";
 import after from "../assets/images/after.png";
 
-const clients = [before, after, before, after];
+const clients = [
+  { image: before, label: "Before" },
+  { image: after, label: "After" },
+  { image: before, label: "Before" },
+  { image: after, label: "After" },
+];
 
 const LeftArrow = ({ onClick }) => {
   return (
@@ -70,57 +75,38 @@ function OurClients() {
       },
     ],
   };
-
   return (
-    <div
-      style={{ position: "relative", height: "400px", marginBottom: "300px " }}
-    >
-      <Typography
-        color="#ff2625"
-        textAlign="center"
-        fontWeight="bold"
-        variant="h2"
-        marginBottom="50px"
-      >
+    <Box sx={{ position: "relative", textAlign: "center", mb: "100px" }}>
+      <Typography color="#ff2625" fontWeight="bold" variant="h2" mb={4}>
         Our Clients!
       </Typography>
       <Slider {...settings}>
-        {clients.map((pic, index) => (
+        {clients.map((item, index) => (
           <Box
-            sx={{ m: { lg: "0 40px", sm: "0 30px", xs: "0 20px" } }}
             key={index}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+              width: "100%",
+              px: { lg: "20px", sm: "10px", xs: "5px" },
+            }}
           >
-            <img
-              src={pic}
-              alt="client"
-              style={{
-                width: "500px",
-                height: "360px",
-                borderRadius: "40px",
-                margin: "0 auto",
+            <img className="our-clients" src={item.image} alt={item.label} />
+            <Typography
+              sx={{
+                fontSize: { lg: "36px", sm: "28px", xs: "20px" },
+                fontWeight: "bold",
+                mt: 2,
               }}
-            />
+            >
+              {item.label}
+            </Typography>
           </Box>
         ))}
       </Slider>
-      <Typography
-        fontSize="50px"
-        position="absolute"
-        bottom="-150px"
-        left="300px"
-      >
-        before
-      </Typography>
-      <Typography
-        fontSize="50px"
-        position="absolute"
-        bottom="-150px"
-        left="970px"
-        color="black"
-      >
-        after
-      </Typography>
-    </div>
+    </Box>
   );
 }
 export default OurClients;
