@@ -51,7 +51,6 @@ const RightArrow = ({ onClick }) => {
 };
 
 function OurClients() {
-  // Slider settings
   const settings = {
     dots: false,
     infinite: false,

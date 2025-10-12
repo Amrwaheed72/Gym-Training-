@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LeftArrowIcon from "../assets/icons/left-arrow.png";
 import RightArrowIcon from "../assets/icons/right-arrow.png";
-import Spinner from "./Spinner";
+import { Spinner } from "./Spinner";
 
 const LeftArrow = ({ onClick }) => {
   return (
@@ -70,8 +70,8 @@ function HorizontalScrollbar({ data, bodyPart, setBodyPart }) {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
     ],

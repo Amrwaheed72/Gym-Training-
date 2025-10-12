@@ -2,8 +2,8 @@ import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useFetchExercise } from "./useFetchExercise";
-import Spinner from "../ui/Spinner";
 import HorizontalScrollbar from "../ui/HorizontalScrollbar";
+import { Spinner } from "../ui/Spinner";
 
 function SearchExercises({ bodyPart, setBodyPart, setExercises }) {
   const [search, setSearch] = useState("");
@@ -19,7 +19,7 @@ function SearchExercises({ bodyPart, setBodyPart, setExercises }) {
     handleCategories();
   }, [exercisesData]);
   if (isPending) {
-    return <Spinner />;
+    return <Spinner size="lg" variant="ring" />;
   }
   if (error) {
     return toast.error("error loading data");

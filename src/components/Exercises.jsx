@@ -2,13 +2,13 @@ import { Box, Pagination, Stack, Typography } from "@mui/material";
 import ExerciseCard from "../ui/ExerciseCard";
 import { useEffect, useState } from "react";
 import { useFetchExercise } from "./useFetchExercise";
-import Spinner from "../ui/Spinner";
 import toast from "react-hot-toast";
+import { Spinner } from "../ui/Spinner";
 
 function Exercises({ exercises, setExercises, bodyPart }) {
   const [currentPage, setCurrentPage] = useState(1);
   const { exercisesData, isPending, error } = useFetchExercise();
-
+  console.log(exercisesData);
   useEffect(() => {
     const filterExercises = () => {
       if (!exercisesData) return;
@@ -27,7 +27,7 @@ function Exercises({ exercises, setExercises, bodyPart }) {
     filterExercises();
   }, [bodyPart]);
 
-  if (isPending) return <Spinner />;
+  if (isPending) return <Spinner size="lg" variant="ring" />;
   if (error) return toast.error("error loading the Exercises");
 
   const exercisesPerPage = 9;
